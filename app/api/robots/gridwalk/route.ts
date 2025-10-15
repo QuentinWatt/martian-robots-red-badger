@@ -16,10 +16,10 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const validation = ValidateGridWalkSchema.safeParse(body);
+  const requestValidation = ValidateGridWalkSchema.safeParse(body);
 
-  if (!validation.success) {
-    const errors = validation.error.issues.map((err) => {
+  if (!requestValidation.success) {
+    const errors = requestValidation.error.issues.map((err) => {
       const field = err.path.join(".") || "field";
       return { [field]: err.message };
     });
@@ -33,5 +33,5 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  return NextResponse.json({ data: result.data }, { status: 200 });
+  return NextResponse.json({ data: requestValidation.data }, { status: 200 });
 }
