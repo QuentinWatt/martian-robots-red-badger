@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { ValidateGridWalkSchema } from "./validate-gridwalk-schema";
 import { parseRequestJSON } from "../../parse-request-json";
+import { handleGridWalk } from "./robotGridWalk";
 
 export async function POST(request: NextRequest) {
   const { data: body, error } = await parseRequestJSON(request);
@@ -26,5 +27,10 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  return NextResponse.json({ data: requestValidation.data }, { status: 200 });
+  const results: string[] = handleGridWalk(
+    requestValidation.data.gridSize,
+    requestValidation.data.robots
+  );
+
+  return NextResponse.json({ data: results }, { status: 200 });
 }
