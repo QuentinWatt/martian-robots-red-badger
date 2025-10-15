@@ -1,0 +1,40 @@
+{
+	"info": {
+		"_postman_id": "7e7e2c67-b240-4c51-ae52-55c8a1b29fe6",
+		"name": "Martian Robots",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40069062"
+	},
+	"item": [
+		{
+			"name": "Robot Gridwalk",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"gridSize\": \"5 3\",\n    \"robots\": [{\n        \"startPosition\": \"1 1 N\",\n        \"moves\": \"FRRF\"\n    }]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/robots/gridwalk",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"robots",
+						"gridwalk"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
