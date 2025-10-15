@@ -16,10 +16,10 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const result = ValidateGridWalkSchema.safeParse(body);
+  const validation = ValidateGridWalkSchema.safeParse(body);
 
-  if (!result.success) {
-    const errors = result.error.issues.map((err) => {
+  if (!validation.success) {
+    const errors = validation.error.issues.map((err) => {
       const field = err.path.join(".") || "field";
       return { [field]: err.message };
     });
