@@ -1,19 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { ValidateGridWalkSchema } from "./validate-gridwalk-schema";
+import { parseRequestJSON } from "../../parse-request-json";
 
 export async function POST(request: NextRequest) {
-  let body;
+  const { data: body, error } = await parseRequestJSON(request);
 
-  try {
-    body = await request.json();
-  } catch (error) {
-    return NextResponse.json(
-      {
-        message: "There was an error processing your request.",
-        errors: ["Invalid JSON"],
-      },
-      { status: 400 }
-    );
+  if (error) {
+    return error;
   }
 
   const requestValidation = ValidateGridWalkSchema.safeParse(body);
