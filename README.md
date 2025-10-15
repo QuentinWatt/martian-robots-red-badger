@@ -4,11 +4,13 @@ Demo url: [https://martian-robots-red-badger.vercel.app/](https://martian-robots
 
 ## Tech Stack
 
-This app is built with NextJS and Hosted on Vercel. By nature of being a NextJS app, the following tech is included:
+This app is built with NextJS and Hosted on Vercel. Techstack in this project
 
 - React
 - Typescript
 - TailwindCSS
+- Vitest
+- Supertest (for testing an API endpoint)
 
 ## Local Setup
 
@@ -26,15 +28,35 @@ git clone git@github.com:QuentinWatt/martian-robots-red-badger.git
 
 Install dependencies:
 
-```
+```bash
 npm install
 ```
 
 Run the app in development mode:
 
-```
+```bash
 npm run dev
 ```
+
+## Testing
+
+### Test with Vitest
+
+Run the app in development mode:
+
+```bash
+npm run dev
+```
+
+Run the tests:
+
+```bash
+npm run test
+```
+
+### Test with Postman
+
+I decided to build a JSON API endpoint to accept the data. Please see `/postman/Martian Robots.postman_collection.json` for an example to test the API endpoint.
 
 ## Project Plan (My creation process)
 
